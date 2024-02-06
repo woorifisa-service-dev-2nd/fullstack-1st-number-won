@@ -1,19 +1,28 @@
 package com.bank.numberwon.model;
 
-import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 import java.util.Date;
 
 @Entity
 public class OrderTicket {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private Date LocalDateTime;
+
+    @OneToOne
+    @JoinColumn(name = "user_id")
+    private User userId;
 
     @ManyToOne
-    @JoinColumn
-    User user;
+    @JoinColumn(name = "branch_code")
+    private BankBranch branchCode;
 
-    @JoinColumn
-    BankBranch bankBranch;
+    @ManyToOne
+    @JoinColumn(name = "department_id")
+    private Department departmentId;
+
+    private Date LocalDateTime;
+
+    private int status;
+
 }

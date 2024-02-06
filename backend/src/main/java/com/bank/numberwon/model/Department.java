@@ -12,12 +12,11 @@ import java.util.List;
 @Getter
 @NoArgsConstructor
 @Entity
-public class BankBranch {
+public class Department {
     @Id
-    private String branchCode;
+    private String Department_id;
     private String name;
 
-    @OneToMany(mappedBy = "branchCode")
+    @OneToMany(mappedBy = "departmentId")
     List<OrderTicket> orderTickets = new ArrayList<>();
-
 }

@@ -6,7 +6,7 @@ export default defineConfig({
   plugins: [react()],
   server: {
     proxy: {
-      "/api/hello" : 'http://localhost:8080'
+      "/numberwon" : 'http://localhost:8080'
     }
   },
   resolve: {
