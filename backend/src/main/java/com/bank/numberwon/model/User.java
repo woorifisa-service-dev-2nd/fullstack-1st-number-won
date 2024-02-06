@@ -17,4 +17,7 @@ public class User {
     private String phone;
 
 
+    public User(String id) {
+        this.id=id;
+    }
 }

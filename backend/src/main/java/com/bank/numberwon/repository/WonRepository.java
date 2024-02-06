@@ -1,4 +1,10 @@
 package com.bank.numberwon.repository;
 
-public interface WonRepository {
+import com.bank.numberwon.model.OrderTicket;
+import org.springframework.data.repository.CrudRepository;
+
+
+public interface WonRepository extends CrudRepository<OrderTicket, Integer> {
+
 }
+

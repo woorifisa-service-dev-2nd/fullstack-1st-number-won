@@ -1,13 +1,19 @@
 package com.bank.numberwon.model;
 
+import lombok.Builder;
+import lombok.Setter;
 import lombok.ToString;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import lombok.Getter;
 import java.util.Date;
 
-@Entity
+@Getter
+@Setter
+@Builder
 @ToString
+@Entity
 public class OrderTicket {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -28,6 +34,10 @@ public class OrderTicket {
     private LocalDateTime localDateTime; // Date를 LocalDateTime으로 변경
 
     private int status;
+
+    private Date LocalDateTime;
+
+
 
 
 }

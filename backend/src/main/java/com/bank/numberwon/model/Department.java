@@ -19,4 +19,8 @@ public class Department {
 
     @OneToMany(mappedBy = "departmentId")
     List<OrderTicket> orderTickets = new ArrayList<>();
+
+    public Department(String Department_id) {
+        this.Department_id=Department_id;
+    }
 }

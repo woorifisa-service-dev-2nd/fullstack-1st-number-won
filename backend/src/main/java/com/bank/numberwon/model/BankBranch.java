@@ -20,4 +20,7 @@ public class BankBranch {
     @OneToMany(mappedBy = "branchCode")
     List<OrderTicket> orderTickets = new ArrayList<>();
 
+    public BankBranch(String branchCode) {
+        this.branchCode=branchCode;
+    }
 }
