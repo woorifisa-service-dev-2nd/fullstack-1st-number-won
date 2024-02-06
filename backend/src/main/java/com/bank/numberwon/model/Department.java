@@ -24,7 +24,4 @@ public class Department {
         this.departmentId = departmentId;
     }
 
-    public String getName() {
-        return this.name;
-    }
 }

@@ -20,26 +20,6 @@ public class OrderTicketDTO {
 
     private int status;
 
-    public Long getUserId() {
-        return userId;
-    }
-
-    public String getBranchCode() {
-        return branchCode;
-    }
-
-    public String getDepartmentId() {
-        return departmentId;
-    }
-
-    public Date getLocalDateTime() {
-        return localDateTime;
-    }
-
-    public int getStatus() {
-        return status;
-    }
-
     public OrderTicketDTO(Long userId, String branchCode, String departmentId, Date localDateTime, int status) {
         this.userId = userId;
         this.branchCode = branchCode;

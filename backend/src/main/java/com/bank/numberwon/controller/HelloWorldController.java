@@ -17,11 +17,6 @@ public class HelloWorldController {
     // OwnerService 의존성 주입
     private final WonServiceImpl wonService;
 
-    @GetMapping
-    public String hello() {
-        return "Hello, World!";
-    }
-
     @PostMapping
     public OrderTicket addTicket(@RequestBody OrderTicketDTO orderTicket) {
         System.out.println("orderTicket = " + orderTicket);
@@ -36,4 +31,19 @@ public class HelloWorldController {
                 .map(ticket -> new OrderTicketDTO(ticket.getUser().getUserId(), ticket.getBranchCode().getName(), ticket.getDepartmentId().getName(), ticket.getLocalDateTime(), ticket.getStatus()))
                 .collect(Collectors.toList());
     }
+    
+    // DB에 있는 OrderTicket 중 특정 BranchCode인 것을 조회    
+    @GetMapping
+    public List<OrderTicket> countByBranchCode(@RequestBody OrderTicket orderTicket) {
+        wonService.findByStatus(orderTicket);
+
+        return wonService.findByBranchCode(orderTicket);
+
+    }
+
+    // DB에 있는 OrderTicket 중 특정 DepartmentId인 것을 조회
+//    @GetMapping
+//    public  List<OrderTicket> countByDepartmentId(@RequestBody OrderTicket orderTicket) {
+//        return wonService.findByDepartmentId(orderTicket);
+//    }
 }

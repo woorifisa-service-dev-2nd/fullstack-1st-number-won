@@ -6,11 +6,11 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Getter
-@Setter
 @ToString
 @Entity
 @Builder
 @AllArgsConstructor
+@NoArgsConstructor
 public class OrderTicket {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -42,6 +42,4 @@ public class OrderTicket {
                 .status(status).build();
     }
 
-    public OrderTicket() {
-    }
 }
