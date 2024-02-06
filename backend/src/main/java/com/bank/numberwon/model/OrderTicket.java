@@ -1,8 +1,13 @@
 package com.bank.numberwon.model;
 
+import lombok.Getter;
+import lombok.ToString;
+
 import javax.persistence.*;
 import java.util.Date;
 
+@Getter
+@ToString
 @Entity
 public class OrderTicket {
     @Id
