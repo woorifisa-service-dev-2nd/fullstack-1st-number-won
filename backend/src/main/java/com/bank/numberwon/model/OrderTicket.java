@@ -1,5 +1,6 @@
 package com.bank.numberwon.model;
 
+<<<<<<< HEAD
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -19,6 +20,27 @@ public class OrderTicket {
     @OneToOne
     @JoinColumn(name = "user_id")
     private User userId;
+=======
+import lombok.*;
+
+import javax.persistence.*;
+import java.util.Date;
+
+@Getter
+@Setter
+@ToString
+@Entity
+@Builder
+@AllArgsConstructor
+public class OrderTicket {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @OneToOne
+    @JoinColumn(name = "user_id")
+    private User user;
+>>>>>>> 71eac5d278b9317ac3daa528af482cf6f0fa5579
 
     @ManyToOne
     @JoinColumn(name = "branch_code")
@@ -28,6 +50,7 @@ public class OrderTicket {
     @JoinColumn(name = "department_id")
     private Department departmentId;
 
+<<<<<<< HEAD
     private String localDateTime;
 
     private int status;
@@ -40,6 +63,20 @@ public class OrderTicket {
         this.departmentId = departmentId;
         this.localDateTime = localDateTime;
         this.status = status;
+=======
+    private Date localDateTime;
+
+    private int status;
+
+    public static OrderTicket of(User user, BankBranch branchCode, Department departmentId, Date localDateTime,
+                                 int status){
+        return OrderTicket.builder()
+                .user(user)
+                .branchCode(branchCode)
+                .departmentId(departmentId)
+                .localDateTime(localDateTime)
+                .status(status).build();
+>>>>>>> 71eac5d278b9317ac3daa528af482cf6f0fa5579
     }
 
 }
