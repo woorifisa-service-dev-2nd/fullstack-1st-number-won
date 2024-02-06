@@ -44,7 +44,7 @@ const Bank = () => {
     <>
       <div>
         {branches.map((branch) => (
-          <Button key={branch.id} onClick={() => setBranch(branch)}>
+          <Button key={branch.branch_code} onClick={() => setBranch(branch)}>
             {branch.name}
           </Button>
         ))}
