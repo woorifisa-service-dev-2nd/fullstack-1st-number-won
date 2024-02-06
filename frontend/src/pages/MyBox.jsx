@@ -36,7 +36,6 @@ function MyBox() {
             <div>지점 코드: {ticket.branchCode}</div>
             <div>부서 ID: {ticket.departmentId}</div>
             <div>시간: {ticket.localDateTime}</div>
-            <div>상태: {ticket.status}</div>
             <Button onClick={deleteTicket(ticket.orderId)}>삭제</Button>
           </div>
         ))

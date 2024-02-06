@@ -4,10 +4,11 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Main from "./pages/Main";
 import MyBox from "./pages/MyBox";
 import Bank from "./pages/Bank";
+import LayoutContainer from "./components/common/LayoutContainer";
 
 function App() {
   const [hello, setHello] = useState("");
-  const [data, setData] = useState([]);
+  // const [data, setData] = useState([]);
 
   useEffect(() => {
     axios
@@ -18,11 +19,13 @@ function App() {
 
   return (
     <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Main />}></Route>
-        <Route path="/bank" element={<Bank />}></Route>
-        <Route path="/mybox" element={<MyBox />}></Route>
-      </Routes>
+      <LayoutContainer>
+        <Routes>
+          <Route path="/" element={<Main />}></Route>
+          <Route path="/bank" element={<Bank />}></Route>
+          <Route path="/mybox" element={<MyBox />}></Route>
+        </Routes>
+      </LayoutContainer>
     </BrowserRouter>
   );
 }

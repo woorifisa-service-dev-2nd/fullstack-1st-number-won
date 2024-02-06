@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import Button from "../components/common/Button";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 const Bank = () => {
   const [branch, setBranch] = useState(null);
   const [department, setDepartment] = useState(null);
+  const [myTicket, setMyTicket] = useState(false);
 
   const branches = [
     { id: "1", branch_code: "960605", name: "유은지점" },
@@ -28,6 +30,7 @@ const Bank = () => {
     };
 
     console.log(ticket);
+    setMyTicket(true);
 
     try {
       const response = await axios.post(
@@ -38,6 +41,11 @@ const Bank = () => {
     } catch (error) {
       console.error(error);
     }
+  };
+
+  const navigate = useNavigate();
+  const goMyBox = () => {
+    navigate("/mybox");
   };
 
   return (
@@ -65,6 +73,12 @@ const Bank = () => {
         <div>
           <span>대기자 수 : 0명</span>
           <Button onClick={orderTicket}>번호표 발급받기</Button>
+        </div>
+      )}
+      {branch && department && myTicket && (
+        <div>
+          <span>번호표를 발급받았습니다!</span>
+          <Button onClick={goMyBox}>번호표 보관함 가기</Button>
         </div>
       )}
     </>
