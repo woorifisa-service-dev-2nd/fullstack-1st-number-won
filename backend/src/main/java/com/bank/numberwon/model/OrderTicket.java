@@ -1,34 +1,33 @@
 package com.bank.numberwon.model;
 
-import lombok.AccessLevel;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.Date;
 
-@Getter
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Entity
+@ToString
 public class OrderTicket {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    private LocalDateTime time;
-
     @OneToOne
-    @JoinColumn(name = "user_id") // 외래 키 컬럼명 지정
-    private User user;
+    @JoinColumn(name = "user_id")
+    private User userId;
 
     @ManyToOne
-    @JoinColumn(name = "bank_branch_id")
-    private BankBranch bankBranch;
+    @JoinColumn(name = "branch_code")
+    private BankBranch branchCode;
 
     @ManyToOne
     @JoinColumn(name = "department_id")
-    private Department department;
-}
+    private Department departmentId;
 
+    private LocalDateTime localDateTime; // Date를 LocalDateTime으로 변경
+
+    private int status;
+
+
+}
