@@ -33,7 +33,12 @@ public class HelloWorldController {
     public List<OrderTicketDTO> getTicket() {
         List<OrderTicket> tickets = wonService.findByUserUserIdAndStatus(11L, 1);
         return tickets.stream()
-                .map(ticket -> new OrderTicketDTO(ticket.getUser().getUserId(), ticket.getBranchCode().getName(), ticket.getDepartmentId().getName(), ticket.getLocalDateTime(), ticket.getStatus()))
+                .map(ticket -> new OrderTicketDTO(ticket.getOrderId(), ticket.getUser().getUserId(), ticket.getBranchCode().getName(), ticket.getDepartmentId().getName(), ticket.getLocalDateTime(), ticket.getStatus()))
                 .collect(Collectors.toList());
+    }
+
+    @DeleteMapping("/mybox/{orderId}")
+    public void deleteTicket(@PathVariable Long orderId) {
+        wonService.deleteById(orderId);
     }
 }

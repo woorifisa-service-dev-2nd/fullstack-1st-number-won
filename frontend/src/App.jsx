@@ -22,7 +22,6 @@ function App() {
         <Route path="/" element={<Main />}></Route>
         <Route path="/bank" element={<Bank />}></Route>
         <Route path="/mybox" element={<MyBox />}></Route>
-        {/* <div>백엔드에서 가져온 데이터입니다 : {hello}</div>; */}
       </Routes>
     </BrowserRouter>
   );

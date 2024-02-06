@@ -39,4 +39,8 @@ public class WonServiceImpl implements WonService {
         return wonRepository.findByUser_UserIdAndStatus(userId, status);
     }
 
+    @Override
+    public void deleteById(Long orderId) {
+        wonRepository.deleteById(orderId);
+    }
 }
