@@ -1,5 +1,6 @@
 package com.bank.numberwon.model;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -11,6 +12,7 @@ import java.util.List;
 
 @Getter
 @NoArgsConstructor
+@AllArgsConstructor
 @Entity
 public class Department {
     @Id
@@ -19,4 +21,8 @@ public class Department {
 
     @OneToMany(mappedBy = "departmentId")
     List<OrderTicket> orderTickets = new ArrayList<>();
+
+    public Department(String department_id) {
+        Department_id = department_id;
+    }
 }

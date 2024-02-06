@@ -6,6 +6,8 @@ import com.bank.numberwon.service.WonServiceImpl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+import java.text.ParseException;
+
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/numberwon")
@@ -20,10 +22,10 @@ public class HelloWorldController {
     }
 
     @PostMapping
-    public OrderTicket addOwner(@RequestBody OrderTicketDTO orderTicket) {
-        System.out.println("orderTicket = " + orderTicket);
-        wonService.save(orderTicket);
-        
+    public OrderTicket addOwner(@RequestBody OrderTicketDTO orderTicketDTO) throws ParseException {
+        System.out.println("orderTicket = " + orderTicketDTO);
+        wonService.save(orderTicketDTO);
+
         return null;
     }
 }

@@ -20,11 +20,11 @@ const Bank = () => {
 
   const orderTicket = async () => {
     const ticket = {
-      userId: "33",
+      userId: "11",
+      branchCode: branch.branch_code,
+      departmentId: department.id,
       localDateTime: new Date().toISOString(),
       status: 1,
-      branchCode: branch.id,
-      departmentId: department.id,
     };
 
     console.log(ticket);
