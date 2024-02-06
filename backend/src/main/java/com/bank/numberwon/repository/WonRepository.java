@@ -4,5 +4,11 @@ import com.bank.numberwon.dto.OrderTicketDTO;
 import com.bank.numberwon.model.OrderTicket;
 import org.springframework.data.repository.CrudRepository;
 
-public interface WonRepository extends CrudRepository<OrderTicket, String> {
+import java.util.List;
+
+//public interface WonRepository extends CrudRepository<OrderTicket, String> {
+//}
+public interface WonRepository extends CrudRepository<OrderTicket, Long> {
+    List<OrderTicket> findByUser_UserIdAndStatus(Long userId, Integer status);
+
 }

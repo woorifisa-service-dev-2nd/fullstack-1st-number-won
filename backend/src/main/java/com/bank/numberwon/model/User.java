@@ -12,12 +12,12 @@ import javax.persistence.Id;
 @Entity
 public class User {
     @Id
-    private Long id;
+    private Long userId;
     private String password;
     private String name;
     private String phone;
 
-    public User(Long id) {
-        this.id = id;
+    public User(Long userId) {
+        this.userId = userId;
     }
 }

@@ -10,12 +10,9 @@ import com.bank.numberwon.repository.DepartementRepository;
 import com.bank.numberwon.repository.UserRepository;
 import com.bank.numberwon.repository.WonRepository;
 import lombok.RequiredArgsConstructor;
-import org.aspectj.weaver.ast.Or;
 import org.springframework.stereotype.Service;
 
-import java.text.DateFormat;
-import java.time.LocalTime;
-import java.util.Date;
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -37,9 +34,9 @@ public class WonServiceImpl implements WonService {
         return wonRepository.save(orderTicket);
     }
 
+    @Override
+    public List<OrderTicket> findByUserUserIdAndStatus(Long userId, Integer status) {
+        return wonRepository.findByUser_UserIdAndStatus(userId, status);
+    }
 
-//    @Override
-//    public OrderTicket save(OrderTicket owner) {
-//        return wonRepository.save(owner);
-//    }
 }
