@@ -23,4 +23,8 @@ public class BankBranch {
     public BankBranch(String branchCode) {
         this.branchCode = branchCode;
     }
+
+    public String getName() {
+        return this.name;
+    }
 }

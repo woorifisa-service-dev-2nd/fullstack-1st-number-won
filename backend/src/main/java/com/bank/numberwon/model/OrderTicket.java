@@ -14,7 +14,7 @@ import java.util.Date;
 public class OrderTicket {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long orderId;
 
     @OneToOne
     @JoinColumn(name = "user_id")
@@ -42,4 +42,6 @@ public class OrderTicket {
                 .status(status).build();
     }
 
+    public OrderTicket() {
+    }
 }

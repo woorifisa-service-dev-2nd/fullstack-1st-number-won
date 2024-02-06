@@ -7,13 +7,7 @@ import com.bank.numberwon.model.OrderTicket;
 import com.bank.numberwon.model.User;
 import com.bank.numberwon.repository.*;
 import lombok.RequiredArgsConstructor;
-import org.aspectj.weaver.ast.Or;
 import org.springframework.stereotype.Service;
-
-import java.text.DateFormat;
-import java.time.LocalTime;
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 @Service
@@ -44,8 +38,8 @@ public class WonServiceImpl implements WonService {
     }
 
 
-//    @Override
-//    public OrderTicket save(OrderTicket owner) {
-//        return wonRepository.save(owner);
-//    }
+    @Override
+    public List<OrderTicket> findByUserUserIdAndStatus(Long userId, Integer status) {
+        return wonRepository.findByUser_UserIdAndStatus(userId, status);
+    }
 }

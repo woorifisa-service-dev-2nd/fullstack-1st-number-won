@@ -19,5 +19,6 @@ public class User {
 
     public User(Long id) {
         this.userId = id;
+
     }
 }

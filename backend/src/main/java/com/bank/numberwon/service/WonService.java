@@ -9,5 +9,8 @@ import java.util.List;
 public interface WonService {
 
     OrderTicket save(OrderTicketDTO orderTicket);
+
     List<Integer> numberOfWaiting(BankBranch branch_code);
+
+    List<OrderTicket> findByUserUserIdAndStatus(Long userId, Integer status);
 }
