@@ -1,10 +1,14 @@
 package com.bank.numberwon.controller;
 
 import com.bank.numberwon.dto.OrderTicketDTO;
+import com.bank.numberwon.model.BankBranch;
 import com.bank.numberwon.model.OrderTicket;
 import com.bank.numberwon.service.WonServiceImpl;
 import lombok.RequiredArgsConstructor;
+import org.hibernate.criterion.Order;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
@@ -16,7 +20,11 @@ public class HelloWorldController {
 
     @GetMapping
     public String test() {
-        return "Hello, world!";
+        List<Integer> numbers=wonService.numberOfWaiting(new BankBranch("960117"));
+        for(Integer num:numbers){
+            System.out.println(num);
+        }
+        return "hello";
     }
 
     @PostMapping
@@ -26,4 +34,6 @@ public class HelloWorldController {
         
         return null;
     }
+
+
 }
