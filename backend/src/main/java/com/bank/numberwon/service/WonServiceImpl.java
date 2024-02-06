@@ -1,4 +1,5 @@
 package com.bank.numberwon.service;
 
-public class WonServiceImpl{
+public class WonServiceImpl implements WonService{
+
 }
