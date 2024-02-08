@@ -14,4 +14,6 @@ public interface OrderTicketRepository extends JpaRepository<OrderTicket, Long> 
     List<OrderTicket> findByBranchCode(BankBranch branchCode);
 
     List<OrderTicket> findByDepartmentId(Department department);
+
+
 }
