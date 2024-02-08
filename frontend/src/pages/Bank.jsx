@@ -20,6 +20,7 @@ const Bank = () => {
     { id: "200", name: "종합상담팀" },
   ];
 
+  
   const orderTicket = async () => {
     const ticket = {
       userId: 11,
@@ -28,7 +29,7 @@ const Bank = () => {
       branchCode: branch.branch_code,
       departmentId: department.id,
     };
-
+    
     console.log(ticket);
     setMyTicket(true);
 
@@ -43,6 +44,25 @@ const Bank = () => {
     }
   };
 
+  const countTicket = (branchCode, departmentId) => {
+    const ticket = {
+      userId: 11,
+      localDateTime: new Date(),
+      status: 1,
+      branchCode: branch.branch_code,
+      departmentId: department.id,
+    };
+    
+    try {
+      const response = axios.get(
+        `/numberwon/bank/${branchCode}/${departmentId}`,
+        ticket
+      );
+      console.log(response.data);
+    } catch (error) {
+      console.error(error);
+    }
+  }
   const navigate = useNavigate();
   const goMyBox = () => {
     navigate("/mybox");
@@ -71,7 +91,7 @@ const Bank = () => {
       )}
       {branch && department && (
         <div>
-          <span>대기자 수 : 0명</span>
+          <span>대기자 수 : {}명</span>
           <Button onClick={orderTicket}>번호표 발급받기</Button>
         </div>
       )}
