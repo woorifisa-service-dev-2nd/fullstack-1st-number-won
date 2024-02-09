@@ -15,13 +15,21 @@ const Main = () => {
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen ">
-      <h1 className="text-4xl mb-8">우리은행 모바일 번호표 발급 서비스</h1>
-      <Button className="bg-blue-500 text-white px-4 py-2 rounded mb-4" onClick={goBank}>
-        모바일 번호표 발급
-      </Button>
-      <Button className="bg-blue-500 text-white px-4 py-2 rounded" onClick={goMyBox}>
-        번호표 보관함
-      </Button>
+      <h1 className="mb-8 text-4xl">우리은행 모바일 번호표 발급 서비스</h1>
+      <div>
+        <Button
+          className="px-4 py-2 mb-4 text-white bg-blue-500 rounded"
+          onClick={goBank}
+        >
+          모바일 번호표 발급
+        </Button>
+        <Button
+          className="px-4 py-2 text-white bg-blue-500 rounded"
+          onClick={goMyBox}
+        >
+          번호표 보관함
+        </Button>
+      </div>
     </div>
   );
 };

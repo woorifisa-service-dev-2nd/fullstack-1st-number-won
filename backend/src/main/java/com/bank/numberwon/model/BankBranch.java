@@ -17,14 +17,11 @@ public class BankBranch {
     private String branchCode;
     private String name;
 
-    @OneToMany(mappedBy = "branchCode")
+    @OneToMany(mappedBy = "branch")
     List<OrderTicket> orderTickets = new ArrayList<>();
 
     public BankBranch(String branchCode) {
         this.branchCode = branchCode;
     }
 
-    public String getName() {
-        return this.name;
-    }
 }

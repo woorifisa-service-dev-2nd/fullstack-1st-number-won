@@ -12,4 +12,6 @@ public interface WonService {
     List<OrderTicket> findByUserUserIdAndStatus(Long userId, Integer status);
 
     void deleteById(Long orderId);
+
+    void updateStatus(Long orderId, int status);
 }

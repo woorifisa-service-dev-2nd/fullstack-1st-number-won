@@ -9,10 +9,10 @@ const Bank = () => {
   const [myTicket, setMyTicket] = useState(false);
 
   const branches = [
-    { id: "1", branch_code: "960605", name: "유은지점" },
-    { id: "2", branch_code: "960117", name: "원섭지점" },
-    { id: "3", branch_code: "001107", name: "이솔지점" },
-    { id: "4", branch_code: "960612", name: "남혁지점" },
+    { branch_code: "960605", name: "유은지점" },
+    { branch_code: "960117", name: "원섭지점" },
+    { branch_code: "001107", name: "이솔지점" },
+    { branch_code: "960612", name: "남혁지점" },
   ];
 
   const departments = [
@@ -33,10 +33,7 @@ const Bank = () => {
     setMyTicket(true);
 
     try {
-      const response = await axios.post(
-        "/numberwon",
-        ticket
-      );
+      const response = await axios.post("/numberwon", ticket);
       console.log(response.data);
     } catch (error) {
       console.error(error);
@@ -49,10 +46,10 @@ const Bank = () => {
   };
 
   return (
-    <>
+    <div className="flex flex-col items-center justify-center min-h-screen">
       <div>
         {branches.map((branch) => (
-          <Button key={branch.id} onClick={() => setBranch(branch)}>
+          <Button key={branch.branch_code} onClick={() => setBranch(branch)}>
             {branch.name}
           </Button>
         ))}
@@ -70,18 +67,18 @@ const Bank = () => {
         </div>
       )}
       {branch && department && (
-        <div>
+        <div className="flex flex-col items-center justify-center mt-8">
           <span>대기자 수 : 0명</span>
           <Button onClick={orderTicket}>번호표 발급받기</Button>
         </div>
       )}
       {branch && department && myTicket && (
-        <div>
+        <div className="flex flex-col items-center justify-center mt-8">
           <span>번호표를 발급받았습니다!</span>
           <Button onClick={goMyBox}>번호표 보관함 가기</Button>
         </div>
       )}
-    </>
+    </div>
   );
 };
 

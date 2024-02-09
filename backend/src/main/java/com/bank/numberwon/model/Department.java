@@ -17,14 +17,12 @@ public class Department {
     private String departmentId;
     private String name;
 
-    @OneToMany(mappedBy = "departmentId")
+    @OneToMany(mappedBy = "department")
     List<OrderTicket> orderTickets = new ArrayList<>();
 
     public Department(String departmentId) {
         this.departmentId = departmentId;
     }
 
-    public String getName() {
-        return this.name;
-    }
+
 }

@@ -1,15 +1,14 @@
-import React from 'react'
+import React from "react";
 
 const LayoutContainer = ({ children }) => {
-    return (
-      <>
-        {/* <Header /> */}
-        <div className='flex items-center justify-center min-h-screen m-0 p-0 font-bold bg-blue-100 text-blue-900'>
+  return (
+    <>
+      {/* <Header /> */}
+      <div className="min-h-screen p-0 m-0 font-bold text-blue-900 bg-blue-100 ">
         {children}
-        </div>
-  
-      </>
-    );
-  };
-  
-  export default LayoutContainer;
+      </div>
+    </>
+  );
+};
+
+export default LayoutContainer;
