@@ -14,10 +14,12 @@ const Main = () => {
   };
 
   return (
-    <div>
-      <h1>우리은행 모바일 번호표 발급 서비스</h1>
-      <Button onClick={goBank}>모바일 번호표 발급</Button>
-      <Button onClick={goMyBox}>번호표 보관함</Button>
+    <div className="flex flex-col items-center justify-center min-h-screen ">
+      <h1 className="mb-8 text-4xl">우리은행 모바일 번호표 발급 서비스</h1>
+      <div>
+        <Button onClick={goBank}>모바일 번호표 발급</Button>
+        <Button onClick={goMyBox}>번호표 보관함</Button>
+      </div>
     </div>
   );
 };

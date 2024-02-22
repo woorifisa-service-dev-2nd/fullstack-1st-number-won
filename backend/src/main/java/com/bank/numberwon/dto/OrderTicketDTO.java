@@ -1,7 +1,5 @@
 package com.bank.numberwon.dto;
 
-import com.bank.numberwon.model.BankBranch;
-import com.bank.numberwon.model.Department;
 import lombok.Getter;
 import lombok.ToString;
 
@@ -10,6 +8,7 @@ import java.util.Date;
 @Getter
 @ToString
 public class OrderTicketDTO {
+    private Long orderId;
     private Long userId;
 
     private String branchCode;
@@ -40,7 +39,8 @@ public class OrderTicketDTO {
         return status;
     }
 
-    public OrderTicketDTO(Long userId, String branchCode, String departmentId, Date localDateTime, int status) {
+    public OrderTicketDTO(Long orderId, Long userId, String branchCode, String departmentId, Date localDateTime, int status) {
+        this.orderId = orderId;
         this.userId = userId;
         this.branchCode = branchCode;
         this.departmentId = departmentId;

@@ -22,22 +22,22 @@ public class OrderTicket {
 
     @ManyToOne
     @JoinColumn(name = "branch_code")
-    private BankBranch branchCode;
+    private BankBranch branch;
 
     @ManyToOne
     @JoinColumn(name = "department_id")
-    private Department departmentId;
+    private Department department;
 
     private Date localDateTime;
 
     private int status;
 
-    public static OrderTicket of(User user, BankBranch branchCode, Department departmentId, Date localDateTime,
+    public static OrderTicket of(User user, BankBranch branch, Department department, Date localDateTime,
                                  int status){
         return OrderTicket.builder()
                 .user(user)
-                .branchCode(branchCode)
-                .departmentId(departmentId)
+                .branch(branch)
+                .department(department)
                 .localDateTime(localDateTime)
                 .status(status).build();
     }

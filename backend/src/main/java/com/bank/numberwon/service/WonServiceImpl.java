@@ -39,4 +39,16 @@ public class WonServiceImpl implements WonService {
         return wonRepository.findByUser_UserIdAndStatus(userId, status);
     }
 
+    @Override
+    public void deleteById(Long orderId) {
+        wonRepository.deleteById(orderId);
+    }
+
+    @Override
+    public void updateStatus(Long orderId, int status) {
+        OrderTicket orderTicket = wonRepository.findById(orderId)
+                .orElseThrow(() -> new IllegalArgumentException("Invalid orderTicket Id:" + orderId));
+        orderTicket.setStatus(status);
+        wonRepository.save(orderTicket);
+    }
 }
