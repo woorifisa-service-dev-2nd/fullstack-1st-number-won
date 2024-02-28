@@ -42,4 +42,10 @@ public class HelloWorldController {
         // wonService.deleteById(orderId);
         wonService.updateStatus(orderId, 0);
     }
+
+    @PostMapping("/bank")
+    public int countTicket(@RequestBody OrderTicketDTO orderTicket){
+        return wonService.countOrderTicket(orderTicket);
+    }
+
 }

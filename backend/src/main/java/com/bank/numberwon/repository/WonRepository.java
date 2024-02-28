@@ -10,5 +10,5 @@ import java.util.List;
 //}
 public interface WonRepository extends CrudRepository<OrderTicket, Long> {
     List<OrderTicket> findByUser_UserIdAndStatus(Long userId, Integer status);
-
+    List<OrderTicket> findAllByStatus(Integer status);
 }

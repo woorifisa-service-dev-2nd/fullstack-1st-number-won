@@ -14,4 +14,6 @@ public interface WonService {
     void deleteById(Long orderId);
 
     void updateStatus(Long orderId, int status);
+
+    int countOrderTicket(OrderTicketDTO orderTicketDTO);
 }

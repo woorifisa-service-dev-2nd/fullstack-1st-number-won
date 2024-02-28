@@ -10,8 +10,10 @@ import com.bank.numberwon.repository.DepartementRepository;
 import com.bank.numberwon.repository.UserRepository;
 import com.bank.numberwon.repository.WonRepository;
 import lombok.RequiredArgsConstructor;
+import org.hibernate.criterion.Order;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -50,5 +52,21 @@ public class WonServiceImpl implements WonService {
                 .orElseThrow(() -> new IllegalArgumentException("Invalid orderTicket Id:" + orderId));
         orderTicket.setStatus(status);
         wonRepository.save(orderTicket);
+    }
+
+    public int countOrderTicket(OrderTicketDTO orderTicketDTO){
+        List<OrderTicket> orderTickets = wonRepository.findAllByStatus(1);
+        System.out.println("orderTickets = " + orderTickets);
+        List<OrderTicket> countTickets = new ArrayList<>();
+        for (OrderTicket orderTicket : orderTickets) {
+            if(orderTicket.getDepartment().getDepartmentId().equals(orderTicketDTO.getDepartmentId()) ){
+                if(orderTicket.getBranch().getBranchCode().equals(orderTicketDTO.getBranchCode())){
+                    countTickets.add(orderTicket);
+                }
+            }
+        }
+        System.out.println("countTickets.size() = " + countTickets.size());
+        System.out.println("countTickets = " + countTickets);
+        return countTickets.size();
     }
 }
