@@ -45,7 +45,9 @@ public class HelloWorldController {
 
     @PostMapping("/bank")
     public int countTicket(@RequestBody OrderTicketDTO orderTicket){
-        return wonService.countOrderTicket(orderTicket);
+//        return wonService.countOrderTicket(orderTicket);
+//        return wonService.findByBranchCodeAndDepartmentId(orderTicket).size();
+        return wonService.countByStatusBranchCodeAndDepartmentId(orderTicket);
     }
 
 }

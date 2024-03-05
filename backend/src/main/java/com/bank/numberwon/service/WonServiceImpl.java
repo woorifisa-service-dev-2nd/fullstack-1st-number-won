@@ -69,4 +69,21 @@ public class WonServiceImpl implements WonService {
         System.out.println("countTickets = " + countTickets);
         return countTickets.size();
     }
+
+    @Override
+    public List<OrderTicket> findByBranchCodeAndDepartmentId(OrderTicketDTO orderTicketDTO) {
+//        BankBranch bankBranch = bankBranchRepository.getReferenceById(orderTicketDTO.getBranchCode());
+//        Department department = departementRepository.getReferenceById(orderTicketDTO.getDepartmentId());
+
+        List<OrderTicket> orderTickets = wonRepository.findByBranch_BranchCodeAndDepartment_DepartmentId(orderTicketDTO.getBranchCode(), orderTicketDTO.getDepartmentId());
+        System.out.println("orderTickets = " + orderTickets);
+        return orderTickets;
+    }
+
+    @Override
+    public int countByStatusBranchCodeAndDepartmentId(OrderTicketDTO orderTicketDTO) {
+        return wonRepository.countByStatusAndBranch_BranchCodeAndDepartment_DepartmentId(1,orderTicketDTO.getBranchCode(), orderTicketDTO.getDepartmentId());
+    }
+
+
 }
